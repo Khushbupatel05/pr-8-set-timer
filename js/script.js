@@ -41,6 +41,7 @@ function startTimer() {
         });
         return;
     }
+    
 
     runningStage = true;
     timer = setInterval(displayTime, 1000);
@@ -73,7 +74,7 @@ document.getElementById("pause").addEventListener("click", () => {
         runningStage = false;
         pauseButton.innerHTML = '<i class="fas fa-play"></i> Resume';
     } else {
-        timer = setInterval(displayTime, 1000);
+        startTimer();
         runningStage = true;
         pauseButton.innerHTML = '<i class="fas fa-pause"></i> Pause';
     }
@@ -102,7 +103,7 @@ function showModal() {
 
 
 function startConfetti() {
-    const end = Date.now() + 1 * 1000;
+    const end = Date.now() + 1 * 4000;
     const colors = ["#bb0000", "#ffffff"];
 
     (function frame() {

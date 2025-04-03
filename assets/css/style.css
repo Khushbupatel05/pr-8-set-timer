@@ -11,6 +11,12 @@
     box-shadow: 0 0 10px #00ffff;
     transition: all 0.3s ease;
 }
+.bg{
+    background-image: url(https://t4.ftcdn.net/jpg/02/43/03/95/360_F_243039506_XKiQHc7Jh2UhXY4Z0VnX90THrKA4sNAG.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .timer-display {
     font-size: 28px;
@@ -23,7 +29,7 @@
 }
 .input-set{
     width: 70px;
-    background: #2b2b2b;
+    background: #888585;
     color: white ; 
     border: none;
 }
