@@ -42,19 +42,22 @@ function startTimer() {
         return;
     }
     
-
     runningStage = true;
     timer = setInterval(displayTime, 1000);
 }
 
 function displayTime() {
-    if (totalSeconds <= 0) {
+    if (totalSeconds === -1) {
         clearInterval(timer);
         runningStage = false;
 
         showModal();
         startConfetti();
+        document.getElementById("hours").value = "";
+    document.getElementById("minutes").value = "";
+    document.getElementById("seconds").value = "";
 
+    time.innerHTML = "00:00:00";
         return;
     }
 
@@ -69,12 +72,13 @@ function displayTime() {
 document.getElementById("pause").addEventListener("click", () => {
     const pauseButton = document.getElementById("pause");
 
-    if (runningStage) {
+    if (timer) {
         clearInterval(timer);
         runningStage = false;
+        timer = null;
         pauseButton.innerHTML = '<i class="fas fa-play"></i> Resume';
     } else {
-        startTimer();
+        timer = setInterval(displayTime, 1000);
         runningStage = true;
         pauseButton.innerHTML = '<i class="fas fa-pause"></i> Pause';
     }
@@ -89,7 +93,7 @@ document.getElementById("reset").addEventListener("click", () => {
     document.getElementById("minutes").value = "";
     document.getElementById("seconds").value = "";
 
-    time.innerHTML = `00:00:00`;
+    time.innerHTML = "00:00:00";
 });
 
 function showModal() {
